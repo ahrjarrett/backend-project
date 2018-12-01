@@ -1,0 +1,6 @@
+#+TITLE: Client stuff
+
+As of create-react-app 2.1.0, TypeScript is included. Just upgrade CRA and install some dependencies:
+
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+
