@@ -1,1 +1,44 @@
 #+TITLE: Backend Project
+
+Engine: Using Node 8 because Node 10 is not currently compatible with this setup (switch to bcryptjs instead of bcrypt to resolve this conflict).
+
+* Todos
+
+** Backend
+
+**** TODO Reimplement backend using GraphQL Yoga
+
+Look into using TypeScript on BE too; is that overkill
+
+**** TODO Look into Prisma Postgres as ORM
+
+**** TODO Fix project to task, user to project relationship
+
+- Project -> Task: One to many, or many to many? Does many to many introduce too much complexity for an MVP?
+
+- User -> Project: One owner, with possibily of many collaborators?
+
+- Task -> Project: Many to one, or could a task belong to multiple projects? Again, does a many to many relationship introduce too much complexity?
+
+
+**** TODO Decide if you want to use EC2 again; if so, rewrite your =post-receive= git hook on local push
+
+
+** Frontend
+
+**** TODO Fix click & drag max update depth bug (or remove from UI)
+
+**** TODO Implement views:
+
+- [ ] Dashboard view
+- [ ] All Projects View
+- [ ] Single Project View (overview, all tasks)
+- [ ] All Tasks View
+- [ ] Admin / user settings view
+
+
+**** TODO If time: Spawn new tab on user switching to inactive view
+
+- [ ] Allow user action open inactive view to generate new tab with active class
+- [ ] Allow user action click close icon to kill view instance in tabbar
+
