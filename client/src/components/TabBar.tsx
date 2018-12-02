@@ -3,9 +3,8 @@ import Tabs from './Tabs'
 import styled from 'styled-components'
 
 const Styles = styled.div`
-  height: 57px;
+  height: 64px;
   background-color: rgb(9, 20, 28, 1);
-
   width: 100%;
 `
 

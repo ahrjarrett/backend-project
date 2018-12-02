@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import MagnifyingGlass from './icons/MagnifyingGlass'
+import MagnifyingGlass from './icons/MagnifyingGlassIcon'
 
 const Styles = styled.div`
   flex: 0 0 auto;
@@ -26,6 +26,7 @@ const Styles = styled.div`
     margin-left: 10px;
     margin-left: 10px;
     font-size: 16px;
+    font-weight: 300;
   }
 `
 

@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const Styles = styled.div`
   display: flex;
   flex-direction: row;
-
-
+  background-color: #172a3a;
+  height: 100vh;
 `
 
 interface ContainerProps {

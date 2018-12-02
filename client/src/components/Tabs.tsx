@@ -1,13 +1,12 @@
 import React from 'react'
+import CloseIcon from './icons/CloseIcon'
 import styled from 'styled-components'
 
 
 const TabsStyles = styled.div`
   display: flex;
-  align-items: center;
-  margin: 9px 60px 0 0;
+  align-items: flex-end;
   height: 100%;
-
 
   .tab {
     box-sizing: border-box;
@@ -17,12 +16,15 @@ const TabsStyles = styled.div`
     background-color: #0f202e;
     opacity: 0.5;
     border-bottom: 2px solid #172a3a;
-    border-radius: 3px;
-    font-size: 16px;
+    border-radius: 3px 3px 0 0;
+    font-size: 1.5rem;
     line-height: 1.6;
+    cursor: pointer;
+    display: flex;
   }
 
   .tab:first-of-type {
+    margin-left: 0;
   }
 
   .active-tab, .tab:hover {
@@ -30,7 +32,6 @@ const TabsStyles = styled.div`
     color: #fff;
     opacity: 1;
   }
-
 
 `
 
@@ -48,7 +49,8 @@ interface TabProps {
 function Tab(props: TabProps) {
   return (
     <div className={props.active ? 'active-tab tab' : 'tab'}>
-      {props.title}
+      <div className='tab-title'>{props.title}</div>
+      <CloseIcon hidden={false} />
     </div>
   )
 }
@@ -58,6 +60,7 @@ function Tabs() {
     <TabsStyles>
       <Tab title={`Admin`} iconUrl={`/`} />
       <Tab title={`Dashboard`} active={true} />
+      <Tab title={`Projects`} />
     </TabsStyles>
   )
 }
