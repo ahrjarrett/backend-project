@@ -64,13 +64,12 @@ class Right extends Component<RightProps, RightState> {
     console.log('getDeltaFromChild!', delta)
 
     this.setState((prevState, props) => ({ width: prevState.width - delta }))
-
   }
 
   render() {
     return (
       <Styles>
-        <h1>WIDTH: {this.state.width}</h1>
+        {/* <h1>WIDTH: {this.state.width}</h1> */}
         <Dragbar onDrag={this.getDeltaFromChild} />
         <div>
           <OmniSearch />

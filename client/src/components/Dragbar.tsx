@@ -11,7 +11,7 @@ interface DataDragType {
   moveDeltaY: number;
 }
 
-type DragbarProps = {
+type PropsInterface = {
   onDrag: Function,
   dataDrag: DataDragType,
 }
@@ -21,8 +21,8 @@ interface StateInterface {
   currentX: number;
 }
 
-class Dragbar extends Component<DragbarProps, StateInterface> {
-  constructor(props: DragbarProps) {
+class Dragbar extends Component<PropsInterface, StateInterface> {
+  constructor(props: PropsInterface) {
     super(props)
     this.state = {
       lastX: 0,
@@ -30,11 +30,11 @@ class Dragbar extends Component<DragbarProps, StateInterface> {
     }
   }
 
-  componentWillReceiveProps(nextProps: DragbarProps) {
+  componentWillReceiveProps(nextProps: PropsInterface) {
     console.log('DATADRAG:', nextProps.dataDrag.moveDeltaX)
 
     /// WROTE IT A DIFFERENT WAY, STILL KILLING MEEE
-    function sendStateToParent<T extends object>(nextState: T, props: DragbarProps): any {
+    function sendStateToParent<T extends object>(nextState: T, props: PropsInterface): any {
       return props.onDrag(nextState)
     }
 
@@ -42,17 +42,20 @@ class Dragbar extends Component<DragbarProps, StateInterface> {
       this.setState((prevState: StateInterface) => ({
         currentX: prevState.lastX + nextProps.dataDrag.moveDeltaX,
       }),
-        // (nextState, props) => this.props.onDrag(nextState)
+        // (nextState: StateInterface) => this.props.onDrag(nextState)
       )
     }
+
     else {
       this.setState((prevState: StateInterface) => ({ lastX: prevState.currentX }))
     }
+
+    console.log('dragbar state:', this.state)
   }
 
-  componentDidUpdate() {
-    this.props.onDrag(this.state.currentX)
-  }
+  // componentDidUpdate() {
+  //   this.props.onDrag(this.state.currentX)
+  // }
 
 
   render() {
@@ -66,8 +69,6 @@ const DragStyle = styled.div`
   background: #27ae60;
   width: 6px;
 `
-
-
 
 export default clickdrag(Dragbar)
 
